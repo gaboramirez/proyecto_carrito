@@ -15,8 +15,8 @@ items.addEventListener('click', e => {btnAumentarDisminuir(e)})
 
 // Traer productos
 const fetchData = async () => {
-    const res = await fetch('api.json');
-    const data = await URL.json()
+    const url = await fetch('api.json');
+    const data = await url.json()
     // console.log(data)
     pintarCards(data)
 }
