@@ -17,9 +17,10 @@ const fetchData = async () => {
 }
 
 const pintarTarjetas = data => {
+    console.log(data)
     data.forEach(producto => {
         templateTarjeta.querySelector('h5').textContent = producto.title
-
+        templateTarjeta.querySelector('p').textContent = producto.precio
         const doble = templateTarjeta.dobleNode(true)
         fragment.appendChild(doble)
     });
