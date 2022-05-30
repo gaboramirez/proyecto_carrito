@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoad', () => {
-
+    fetchData
 })
 
 const fetchData = async () => {
