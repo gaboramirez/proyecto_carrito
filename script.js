@@ -21,6 +21,7 @@ const pintarTarjetas = data => {
     data.forEach(producto => {
         templateTarjeta.querySelector('h5').textContent = producto.title
         templateTarjeta.querySelector('p').textContent = producto.precio
+        templateTarjeta.querySelector('img').setAttribute("src", producto.url)
         const doble = templateTarjeta.dobleNode(true)
         fragment.appendChild(doble)
     });
