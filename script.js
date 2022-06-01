@@ -17,9 +17,9 @@ cards.addEventListener('click', e => {
 
 const fetchData = async () => {
     try {
-        const res = await fetch('api.json')
-        const data = await res.json()
-        pintarTarjetas(data)
+        const url = await fetch('api.json')
+        const dato = await url.json()
+        pintarTarjetas(dato)
     } catch (error) {
         console.log(error)
     }
