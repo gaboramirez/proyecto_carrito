@@ -1,11 +1,17 @@
-const items = document.getElementById('items')
+const cards = document.getElementById('cards')
 const templateTarjeta = document.getElementById('template-tarjeta').content
+const templateFooter = document.getElementById('template-footer').content
+const templateCarrito = document.getElementById('template-carrito').content
+const items = document.getElementById('items')
+const footer = document.getElementById('footer')
 const fragment = document.createDocumentFragment()
+
+let carrito = {}
 
 document.addEventListener('DOMContentLoad', () => {
     fetchData
 })
-items.addEventListener('click', e => {
+cards.addEventListener('click', e => {
     agregarAlCarrito(e)
 })
 
@@ -29,9 +35,43 @@ const pintarTarjetas = data => {
         const doble = templateTarjeta.dobleNode(true)
         fragment.appendChild(doble)
     });
-    items.appendChild(fragment)
+    cards.appendChild(fragment)
 }
 
 const agregarAlCarrito = e => {
-    console.log(e.target)
+    if (e.target.classList.contains('btn-dark')){
+        setCarrito(e.target.parentElement)
+    }
+    e.stopPropagation()
+}
+
+const setCarrito = objeto => {
+    const producto = {
+        id: objeto.querySelector('.dark').dataset.id,
+        title: objeto.querySelector('h5').textContent,
+        precio: objeto.querySelector('p').textContent,
+        cantidad: 1
+    }
+
+    if(carrito.hasOwnProperty(producto.id)){
+        producto.cantidad = carrito[producto.id].cantidad + 1
+    }
+
+    carrito[producto.id] = {...producto}
+    pintarCarrito()
+}
+
+const pintarCarrito = () => {
+    Object.values(carrito).forEach(producto => {
+        templateCarrito.querySelector('th').textContent = producto.id
+        templateCarrito.querySelectorAll('td')[0].textContent = producto.title
+        templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
+        templateCarrito.querySelector('.btn-info').dataset.id = producto.id
+        templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
+        templateCarrito.querySelector('span').textContent = producto.cantidad * producto.precio
+
+        const doble = templateCarrito.dobleNode(true)
+        fragment.appendChild(doble)
+    })
+    items.appendChild(fragment)
 }
