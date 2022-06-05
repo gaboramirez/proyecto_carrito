@@ -41,8 +41,8 @@ const pintarTarjetas = data => {
         templateTarjeta.querySelector('p').textContent = producto.precio
         templateTarjeta.querySelector('img').setAttribute("src", producto.url)
         templateTarjeta.querySelector('.btn-dark').dataset.id = producto.id
-        const doble = templateTarjeta.dobleNode(true)
-        fragment.appendChild(doble)
+        const copia = templateTarjeta
+        fragment.appendChild(copia)
     });
     cards.appendChild(fragment)
 }
@@ -81,8 +81,8 @@ const pintarCarrito = () => {
         templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
         templateCarrito.querySelector('span').textContent = producto.cantidad * producto.precio
 
-        const doble = templateCarrito.dobleNode(true)
-        fragment.appendChild(doble)
+        const copia = templateCarrito
+        fragment.appendChild(copia)
     })
     items.appendChild(fragment)
 
@@ -106,8 +106,8 @@ const pintarFooter = () => {
     templateFooter.querySelectorAll('td')[0].textContent = totalCantidad
     templateFooter.querySelector('span').textContent = totalPrecio
 
-    const doble = templateFooter.dobleNode(true)
-    fragment.appendChild(doble)
+    const copia = templateFooter
+    fragment.appendChild(copia)
     footer.appendChild(fragment)
 
     const vaciar = document.getElementById('vaciar-carrito')
