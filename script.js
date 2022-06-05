@@ -37,8 +37,6 @@ const fetchData = async () => {
 const pintarTarjetas = data => {
     console.log(data)
     data.forEach(producto => {
-        console.log("entra a pintar tarjetas")
-
         templateTarjeta.querySelector('h5').textContent = producto.title
         templateTarjeta.querySelector('p').textContent = producto.precio
         templateTarjeta.querySelector('img').setAttribute("src", producto.url)
