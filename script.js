@@ -38,12 +38,12 @@ const pintarTarjetas = data => {
     console.log(data)
     data.forEach(producto => {
         console.log("entra a pintar tarjetas")
-        
+
         templateTarjeta.querySelector('h5').textContent = producto.title
         templateTarjeta.querySelector('p').textContent = producto.precio
         templateTarjeta.querySelector('img').setAttribute("src", producto.url)
         templateTarjeta.querySelector('.btn-dark').dataset.id = producto.id
-        const copia = templateTarjeta
+        const copia = templateTarjeta.cloneNode(true)
         fragment.appendChild(copia)
     });
     cards.appendChild(fragment)
@@ -83,7 +83,7 @@ const pintarCarrito = () => {
         templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
         templateCarrito.querySelector('span').textContent = producto.cantidad * producto.precio
 
-        const copia = templateCarrito
+        const copia = templateCarrito.cloneNode(true)
         fragment.appendChild(copia)
     })
     items.appendChild(fragment)
@@ -108,7 +108,7 @@ const pintarFooter = () => {
     templateFooter.querySelectorAll('td')[0].textContent = totalCantidad
     templateFooter.querySelector('span').textContent = totalPrecio
 
-    const copia = templateFooter
+    const copia = templateFooter.cloneNode(true)
     fragment.appendChild(copia)
     footer.appendChild(fragment)
 
