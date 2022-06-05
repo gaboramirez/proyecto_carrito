@@ -8,8 +8,8 @@ const fragment = document.createDocumentFragment()
 
 let carrito = {}
 
-document.addEventListener('DOMContentLoad', () => {
-    fetchData
+document.addEventListener('DOMContentLoaded', async () => {
+    await fetchData()
     if(localStorage.getItem('carrito')) {
         carrito = JSON.parse(localStorage.getItem('carrito'))
         pintarCarrito()
