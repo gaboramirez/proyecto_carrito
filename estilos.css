@@ -1,8 +1,16 @@
 body {
-    background-color: rgb(185, 241, 227);
+    background-color: rgb(223, 241, 237);
 }
 
 .imagen-producto {
     width: 350px;
     height: 350px;
 }
+
+h1 {
+    font-size: 200%;
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Roboto mono', monospace;
+    text-decoration:underline;
+    }
