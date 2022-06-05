@@ -101,7 +101,7 @@ const pintarFooter = () => {
     }
 
     const totalCantidad = Object.values(carrito).reduce((acc, {cantidad}) => acc + cantidad,0)
-    const totalPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad + precio,0)
+    const totalPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + (cantidad * precio),0)
 
     templateFooter.querySelectorAll('td')[0].textContent = totalCantidad
     templateFooter.querySelector('span').textContent = totalPrecio
