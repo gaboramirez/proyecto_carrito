@@ -118,6 +118,7 @@ const pintarFooter = () => {
     vaciar.addEventListener('click', () => {
         carrito = {}
         pintarCarrito()
+
         
     })
 }
@@ -139,6 +140,7 @@ const botonFuncion = e => {
             delete carrito[e.target.dataset.id]
         }
         pintarCarrito()
+        
     }
 
     e.stopPropagation()
